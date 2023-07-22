@@ -1,0 +1,18 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# vscode
+/.vscode
+
+# misc
+.DS_Store
+
+/cypress/report
+/cypress/screenshots
+/cypress/videos
+/package-lock.json
+/cypress.env.json
+/cypress.env
+/canvasLoadTimeMeasurement.txt
