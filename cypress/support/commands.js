@@ -25,9 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 const { e2e } = require('../../cypress.config');
-import { canvasPageElements } from "../support/elements/canvas.elements";
-import { loginPageElements } from './elements/login.elements'
-import { projectPageElements } from './elements/createProject.elements';
+
 
 Cypress.Commands.add("isVisibleAndPlaceholder", (xpath, text) => {
   cy.get(xpath).should('be.visible').and("have.attr", "placeholder", text);

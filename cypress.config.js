@@ -21,7 +21,7 @@ module.exports = {
   e2e: {
     defaultCommandTimeout: 40000,
     requestTimeout: 50000,
-    baseUrl: 'https://dev.app.planera.io',
+    baseUrl: 'https://jazzgameworld.com.pk/home',
     baseUrlDevBlue: 'https://dev-blue.d3gt8rndv0q3ao.amplifyapp.com',
     baseUrlCollabStaging: 'https://collab.app.planera.io',
     pageLoadTimeSmall: 2000,
