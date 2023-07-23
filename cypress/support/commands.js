@@ -49,3 +49,45 @@ Cypress.Commands.add("getByClass", (selector, ...args) => {
 Cypress.Commands.add("getByAutoId", (selector, ...args) => {
   return cy.get(`[auto-id=${selector}]`, ...args);
 })
+
+Cypress.Commands.add('checkImagesAndLinks', (containerSelector) => {
+
+  cy.get(containerSelector).first().find('img').each(($img) => {        // Iterate through each image in the container
+    const src = $img.attr('src');
+    cy.request(src).then((response) => {                                // Check if the image has a valid source
+      expect(response.status).to.eq(200);                               // 200 indicates the image loaded successfully
+    });
+  });
+  cy.get(containerSelector).first().find('a').each(($link) => {         // Get all links within the specific class container
+    const href = $link.attr('href');
+    if (href) {                                                         // Check if the link has a valid href
+      cy.request(href).then((response) => {
+        expect(response.status).to.not.eq(404);                         // 404 indicates a broken link
+      });
+    }
+  });
+});
+
+Cypress.Commands.add('checkBrokenImagesAndLinksInDiv', (divSelector) => {
+  cy.get(divSelector).within(() => {
+    cy.get('img').each(($img) => {                                        // Check images
+      const src = $img.attr('src');
+
+      cy.request(src).then((response) => {
+        expect(response.status).to.eq(200);                                // 200 indicates the image loaded successfully
+      });
+    });
+
+    // Check links
+    cy.get('a').each(($link) => {
+      const href = $link.attr('href');
+
+      if (href) {
+        cy.request(href).then((response) => {
+          expect(response.status).to.not.eq(404);                          // 404 indicates a broken link
+        });
+      }
+    });
+  });
+});
+
