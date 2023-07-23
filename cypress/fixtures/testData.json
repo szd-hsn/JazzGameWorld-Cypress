@@ -1,3 +1,42 @@
 {
+    "recommendedStreamsHeadingText": "Recommended Streams!",
+    "searchTitle": "PUBG",
+    "leftNavMenuTabsNames": [
+        "Live Streams",
+        "Recently Watched",
+        "Browse",
+        "Following",
+        "Play Games",
+        "Web Games",
+        "Play Instant Games",
+        "Mobile Games",
+        "Multiplayer Games",
+        "Tournaments",
+        "Ongoing",
+        "Completed",
+        "Registered",
+        "Subscribe & Win",
+        "Leader Board",
+        "Popular Streamers",
+        "View all",
+        "Popular Games",
+        "View all"
+    ],
+    "footerNavMenuTabsName": [
+        "Home",
+        "Live Streams",
+        "Mobile Games",
+        "Browse",
+        "Signup",
+        "About Us"
+    ],
+    "changeUrlTabsName": [
+        "Multilayer Games",
+        "Mobile Games",
+        "Web Games",
+        "Live Streams",
+        "Streamers",
+        "Streaming Games"
+    ]
     
 }
