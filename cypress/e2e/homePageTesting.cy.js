@@ -1,11 +1,13 @@
 import { home } from 'ospath';
 import { e2e } from '../../cypress.config';
 import HomePage from '../support/pages/home.page';
+import SearchPage from '../support/pages/search.page';
 import { utils } from '../support/pages/utils.page';
 
 describe('HomePage Test Suite', () => {
 
     const homepage = new HomePage();
+    const searchpage = new SearchPage();
 
     beforeEach(() => {
     })
@@ -28,7 +30,7 @@ describe('HomePage Test Suite', () => {
 
         homepage.getMainLogo().should('be.visible')         // Website Logo should be visible
         homepage.getVideo().should('be.visible')            // Main video should be visible
-        homepage.getSearchForm().should('be.visible')       // Search bar should be visible
+        searchpage.getSearchForm().should('be.visible')       // Search bar should be visible
         homepage.getSpinWheelButton().should('be.visible')  // Spin Wheel button should be visible
         cy.fixture('testData').then((data) => {
             utils.verifyLeftNavigationMenu(data.leftNavMenuTabsNames)  // Verfication of the left Menu Tab
@@ -47,9 +49,9 @@ describe('HomePage Test Suite', () => {
     it('TC 2 | Verify the search bar functionality', () => {
 
         cy.fixture('testData').then((data) => {
-            homepage.getSearchInput().scrollIntoView().type(`${data.searchTitle}{enter}`)                      // Search "PUBG" in the search box
-            homepage.getSearchResultsTitle()                                                  // verify the main search title
-            homepage.getSearchResultsSubtitle(`Showing results for :: ${data.searchTitle}`)   // verify the sub search title
+            searchpage.getSearchInput().scrollIntoView().type(`${data.searchTitle}{enter}`)                      // Search "PUBG" in the search box
+            searchpage.getSearchResultsTitle()                                                  // verify the main search title
+            searchpage.getSearchResultsSubtitle(`Showing results for :: ${data.searchTitle}`)   // verify the sub search title
             homepage.verifyNavItemIsActive()                                                  // verify active tab
             homepage.getMainLogo().click()                                                      // naviagte to home page
         })
@@ -141,7 +143,7 @@ describe('HomePage Test Suite', () => {
         })
     })
 
-    it('TC 10 | Verify the "Web Games" left navigation menu items', () => {
+    it('TC 10 | Verify the "Mobile Games" left navigation menu items', () => {
 
         cy.fixture('testData').then((data) => {
             // Mobile Games
