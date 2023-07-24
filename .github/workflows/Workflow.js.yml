@@ -1,15 +1,7 @@
 name: Cypress Tests
 
-on:    
-  workflow_dispatch:
-    inputs:
-      loginUrl:
-        description: 'Please select the link'
-        type: choice
-        default: 'https://jazzgameworld.com.pk/home'
-        options:
-        - https://jazzgameworld.com.pk/home
-        
+on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
