@@ -13,14 +13,6 @@ class HomePage {
         return cy.get('.video');
     }
 
-    getSearchForm() {
-        return cy.get('#searchForm');
-    }
-
-    getSearchInput() {
-        return this.getSearchForm().find('input');
-    }
-
     getSpinWheelButton() {
         return cy.get('.spin_links');
     }
@@ -47,14 +39,6 @@ class HomePage {
 
     getFooterLogo() {
         return cy.get('.footer_logo').last()
-    }
-
-    getSearchResultsTitle() {
-        cy.get('h5').contains('Search').should('be.visible');
-    }
-
-    getSearchResultsSubtitle() {
-        return cy.get('h6');
     }
 
     verifyNavItemIsActive() {
