@@ -62,7 +62,7 @@ class HomePage {
     }
 
     clickOnTheLeftMenuTab(tabName){
-        cy.get('#menu').find('li').contains(tabName).click()
+        cy.get('#menu').find('li').contains(tabName).scrollIntoView().click()
     }
 
 }

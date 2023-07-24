@@ -73,62 +73,107 @@ describe('HomePage Test Suite', () => {
 
     })
 
-    it('TC 5 | Verify the left navigation menu items', () => {
+    it('TC 5 | Verify the  "Live Streams" left navigation menu items', () => {
 
         cy.fixture('testData').then((data) => {
-
             // Live Streams
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[0])
             homepage.verifyURL().should('include', 'streamsLive');
             utils.verifyChangeUrlTabs(data.changeUrlTabsName, data.changeUrlTabsName[3]);
             // homepage.verifyLiveStreamVideosAndLinks();
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
+        })
+    })
 
+    it('TC 6 | Verify the "Recently Watched" left navigation menu items', () => {
 
+        cy.fixture('testData').then((data) => {
             // Recent Watch
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[1])
             homepage.verifyURL().should('include', 'https://jazzgameworld.com.pk/phonePage?');
             cy.go('back');                                          // Naviagte back 
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
+        })
+    })
 
+    it('TC 7 | Verify the "Browse" left navigation menu items', () => {
+
+        cy.fixture('testData').then((data) => {
             // Browse
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[2])
             homepage.verifyURL().should('include', 'browse');
-            // utils.verifyChangeUrlTabs(data.changeUrlTabsName, data.changeUrlTabsName[0]);
             // homepage.verifyLiveStreamVideosAndLinks();
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
+        })
+    })
 
-            // // Follwoing
+    it('TC 8 | Verify the "Follwoing" left navigation menu items', () => {
+
+        cy.fixture('testData').then((data) => {
+            // Follwoing
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[3])
             homepage.verifyURL().should('include', 'https://jazzgameworld.com.pk/phonePage?');
             cy.go('back');                                          // Naviagte back 
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
+        })
+    })
 
-            // // Web Games
+    it('TC 9 | Verify the "Web Games" left navigation menu items', () => {
+
+        cy.fixture('testData').then((data) => {
+            // Web Games
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[5])
             homepage.verifyURL().should('include', 'gamesWeb');
             utils.verifyChangeUrlTabs(data.changeUrlTabsName, data.changeUrlTabsName[2]);
             // homepage.verifyLiveStreamVideosAndLinks();
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
+        })
+    })
 
+    it('TC 10 | Verify the "Web Games" left navigation menu items', () => {
+
+        cy.fixture('testData').then((data) => {
             // Mobile Games
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[7])
             homepage.verifyURL().should('include', 'gamesMobile');
             utils.verifyChangeUrlTabs(data.changeUrlTabsName, data.changeUrlTabsName[1]);
             // homepage.verifyLiveStreamVideosAndLinks();
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
+        })
+    })
 
+    it('TC 11 | Verify the "Multiplayer Games" left navigation menu items', () => {
+
+        cy.fixture('testData').then((data) => {
             // Multiplayer Games
             homepage.clickOnTheLeftMenuTab(data.leftNavMenuTabsNames[8])
             homepage.verifyURL().should('include', 'gamesMultiplayer');
-            // utils.verifyChangeUrlTabs(data.changeUrlTabsName, data.changeUrlTabsName[0]);
             // homepage.verifyLiveStreamVideosAndLinks();
-
+            cy.wait(e2e.pageLoadTimeMedium)
+            homepage.getMainLogo().scrollIntoView().click()
+            homepage.verifyURL().should('include', e2e.baseUrl)
         })
-
     })
 
-    it('TC 6 | Verify navigating back to the home page', () => {
-
-    homepage.getMainLogo().scrollIntoView().click()
-    homepage.verifyURL().should('include', e2e.baseUrl)
-    cy.wait(e2e.pageLoadTimeMedium)
-    homepage.getFooterLogo().scrollIntoView().click()
-    homepage.verifyURL().should('include', e2e.baseUrl)
+    it('TC 12 | Verify navigating back to the home page', () => {
+        cy.wait(e2e.pageLoadTimeMedium)
+        homepage.getMainLogo().scrollIntoView().click()
+        homepage.verifyURL().should('include', e2e.baseUrl)
+        cy.wait(e2e.pageLoadTimeMedium)
+        homepage.getFooterLogo().scrollIntoView().click()
+        homepage.verifyURL().should('include', e2e.baseUrl)
 
     })
 
