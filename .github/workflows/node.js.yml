@@ -23,22 +23,15 @@ jobs:
       - name: install dependencies
         run: npm i
         
-      - name: Install Mochawesome
-        run: npm install mochawesome
-        
       - name: Run cypress test
         run: npx cypress run --browser chrome --headless
-          
-      - name: Marge JSON reports
-        run: |
-          npx mochawesome-merge cypress/mochawesome/*.json -o mocha-report.json
-          npx marge mocha-report.json --reportDir ./ --inline
-        if: always()
           
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: mocha-report
-          path: mocha-report.html
+          path: |
+            cypress/report/*.html
+            cypress/videos/*.mp4
         if: always()
     
