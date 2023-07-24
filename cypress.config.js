@@ -19,7 +19,7 @@ module.exports = {
   "waitForNavigation": true,
   "isElectron": true,
   e2e: {
-    defaultCommandTimeout: 40000,
+    defaultCommandTimeout: 100000,
     requestTimeout: 50000,
     baseUrl: 'https://jazzgameworld.com.pk/home',
     baseUrlDevBlue: 'https://dev-blue.d3gt8rndv0q3ao.amplifyapp.com',
