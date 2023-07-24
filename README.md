@@ -24,7 +24,9 @@ This repository contains an automation testing framework implemented using Cypre
 **Installation:** Clone the repository and install the required dependencies by running:
 
 cd [repository folder]
+
 git clone https://github.com/szd-hsn/JazzGameWorld-Cypress.git
+
 npm install
 
 **Running Tests:** Execute the Cypress tests using the following command:
